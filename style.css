@@ -1,0 +1,633 @@
+/* ==========================================
+   1. BASE / MOBILE-FIRST (Telas até 767px)
+   ========================================== */
+
+/* RESET E PREVENÇÃO DE TRANSBORDO */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden; /* Elimina a barra de rolagem horizontal */
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+/* CABEÇALHO */
+.header {
+    background-color: #022056;
+    color: white;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.header-brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo {
+    width: 110px;
+    height: auto;
+    display: block;
+}
+
+.header-title,
+.header h1 {
+    font-size: 1.2rem;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    color: #ffffff;
+    white-space: normal;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+}
+
+.header-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 14px;
+    border-radius: 50%;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.header-btn i {
+    font-size: 18px;
+}
+
+/* Oculta o texto do botão do aluno no mobile */
+.btn-aluno .btn-text {
+    display: none;
+}
+
+.btn-whatsapp {
+    background-color: #25d366;
+    color: #ffffff;
+}
+
+.btn-whatsapp:hover {
+    background-color: #1ebc57;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(37, 211, 102, 0.4);
+}
+
+.btn-aluno {
+    background-color: #ffffff;
+    color: #022056;
+}
+
+.btn-aluno:hover {
+    background-color: #f0f0f0;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3);
+}
+
+/* CARROSSEL PRINCIPAL BANNER SUPERIOR */
+.carousel {
+    width: 100%;
+    margin: 20px auto;
+    position: relative;
+    padding: 0 10px;
+}
+
+.carousel-container {
+    position: relative;
+    min-height: auto;
+    height: auto;
+    overflow: hidden;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.carousel-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.6s ease-in-out;
+}
+
+.carousel-item.active {
+    opacity: 1;
+    position: relative;
+}
+
+.carousel-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    padding: 15px;
+    gap: 15px;
+}
+
+.carousel-content img {
+    width: 100%;
+    height: auto;
+    max-height: none;
+    object-fit: contain;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+.carousel-content .text,
+.text {
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.text h2 {
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+    color: #00007e;
+    line-height: 1.2;
+}
+
+.text p {
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.4;
+}
+
+button.prev,
+button.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #00007e;
+    color: white;
+    border: none;
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 16px;
+    transition: background 0.3s ease;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button.prev { left: 5px; }
+button.next { right: 5px; }
+
+button.prev:hover,
+button.next:hover {
+    background: #001c63;
+}
+
+/* ESTRUTURA DO COLÉGIO (GALERIA "NOSSA ESCOLA") */
+.estrutura-section {
+    width: 100%;
+    margin: 30px auto;
+    padding: 0 15px;
+    text-align: center;
+}
+
+.estrutura-section h2 {
+    color: #00007e;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.estrutura-section .subtitulo {
+    color: #555;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.estrutura-section .subtitulo br {
+    display: none; /* Remove quebras de linha manuais em telas pequenas */
+}
+
+.galeria-carousel-wrapper {
+    position: relative;
+    width: 100%;
+    padding: 0 40px; /* Margem de segurança para conter as setas */
+    box-sizing: border-box;
+}
+
+.galeria-carousel-track {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 10px 5px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.galeria-carousel-track::-webkit-scrollbar {
+    display: none;
+}
+
+.galeria-card {
+    flex: 0 0 200px;
+    height: 280px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    background-color: #00288a;
+}
+
+.galeria-card a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+}
+
+.galeria-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.galeria-card img:hover {
+    opacity: 0.9;
+    transform: scale(1.02);
+}
+
+/* SETAS DA GALERIA */
+.galeria-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #00288a;
+    color: white;
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 16px;
+    z-index: 10;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.prev-galeria { left: 0px; }
+.next-galeria { right: 0px; }
+
+/* RODAPÉ (FOOTER) */
+.footer {
+    background-color: #022056;
+    color: #ffffff;
+    padding-top: 30px;
+    margin-top: 40px;
+}
+
+.footer-container {
+    width: 100%;
+    padding: 0 20px 30px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 30px;
+}
+
+.footer-contato,
+.footer-mapa {
+    width: 100%;
+}
+
+.footer-contato h3,
+.footer-mapa h3 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    position: relative;
+    padding-bottom: 8px;
+}
+
+.footer-contato h3::after,
+.footer-mapa h3::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    width: 50px;
+    height: 3px;
+    background-color: #ffffff;
+}
+
+.footer-contato ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-contato li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 12px;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.footer-contato .link-instagram {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-contato .link-instagram:hover {
+    color: #f4d35e;
+    text-decoration: underline;
+}
+
+.mapa-wrapper {
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.mapa-wrapper iframe {
+    height: 200px;
+    display: block;
+}
+
+.footer-bottom {
+    background-color: #022056;
+    text-align: center;
+    padding: 15px 20px;
+    font-size: 13px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+
+/* ==========================================
+   2. TABLETS (A partir de 768px)
+   ========================================== */
+@media (min-width: 768px) {
+    .header {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 20px;
+    }
+
+    .header-brand {
+        justify-content: flex-start;
+    }
+
+    .logo {
+        width: 130px;
+    }
+
+    .header-title,
+    .header h1 {
+        font-size: 1.8rem;
+        text-align: left;
+    }
+
+    .header-actions {
+        width: auto;
+    }
+
+    .btn-aluno {
+        padding: 10px 16px;
+        border-radius: 25px;
+    }
+
+    .btn-aluno .btn-text {
+        display: inline; /* Exibe o texto Portal do Aluno em Tablets */
+    }
+
+    .carousel-container {
+        height: 300px;
+    }
+
+    .carousel-content {
+        flex-direction: row;
+        height: 100%;
+        padding: 20px;
+        gap: 20px;
+    }
+
+    .carousel-item.reverse .carousel-content {
+        flex-direction: row-reverse;
+    }
+
+    .carousel-content img {
+        width: 50%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .carousel-content .text,
+    .text {
+        width: 50%;
+        text-align: left;
+    }
+
+    .carousel-item.reverse .text {
+        text-align: left;
+    }
+
+    .text h2 {
+        font-size: 1.5rem;
+    }
+
+    .text p {
+        font-size: 0.95rem;
+    }
+
+    button.prev, button.next {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
+
+    .estrutura-section h2 {
+        font-size: 1.8rem;
+    }
+
+    .estrutura-section .subtitulo br {
+        display: inline; /* Restaura as quebras de linha em telas maiores */
+    }
+
+    .galeria-card {
+        flex: 0 0 240px;
+        height: 330px;
+    }
+
+    .footer-container {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+        align-items: flex-start;
+    }
+
+    .footer-contato,
+    .footer-mapa {
+        flex: 1;
+    }
+
+    .footer-contato h3::after,
+    .footer-mapa h3::after {
+        left: 0;
+        transform: none;
+    }
+
+    .footer-contato li {
+        justify-content: flex-start;
+    }
+}
+
+
+/* ==========================================
+   3. COMPUTADORES E NOTEBOOKS (A partir de 1024px)
+   ========================================== */
+@media (min-width: 1024px) {
+    .header {
+        padding: 20px 40px;
+    }
+
+    .logo {
+        width: 150px;
+    }
+
+    .header-title,
+    .header h1 {
+        font-size: 2.2rem;
+    }
+
+    .carousel {
+        max-width: 950px;
+        padding: 0 45px;
+    }
+
+    .carousel-container {
+        height: 320px;
+    }
+
+    .carousel-content img {
+        height: 270px;
+    }
+
+    .text h2 {
+        font-size: 1.75rem;
+    }
+
+    .text p {
+        font-size: 1rem;
+    }
+
+    .estrutura-section {
+        max-width: 1100px;
+    }
+
+    .galeria-card {
+        flex: 0 0 280px;
+        height: 380px;
+    }
+
+    .galeria-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .galeria-btn {
+        width: 42px;
+        height: 42px;
+        font-size: 18px;
+    }
+
+    .prev-galeria { left: -10px; }
+    .next-galeria { right: -10px; }
+
+    .footer-container {
+        max-width: 1100px;
+        margin: 0 auto;
+    }
+
+    .mapa-wrapper iframe {
+        height: 220px;
+    }
+}
+
+
+/* ==========================================
+   4. MONITORES GRANDES (A partir de 1440px)
+   ========================================== */
+@media (min-width: 1440px) {
+    .header {
+        padding: 20px 80px;
+    }
+
+    .header-title,
+    .header h1 {
+        font-size: 2.5rem;
+    }
+
+    .carousel {
+        max-width: 1150px;
+    }
+
+    .carousel-container {
+        height: 360px;
+    }
+
+    .carousel-content img {
+        height: 300px;
+    }
+
+    .text h2 {
+        font-size: 2rem;
+    }
+
+    .text p {
+        font-size: 1.1rem;
+    }
+
+    .estrutura-section {
+        max-width: 1280px;
+    }
+
+    .galeria-card {
+        flex: 0 0 300px;
+        height: 400px;
+    }
+
+    .footer-container {
+        max-width: 1280px;
+    }
+}
